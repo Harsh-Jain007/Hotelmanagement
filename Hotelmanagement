@@ -1,0 +1,224 @@
+def display_menu(heading,menu):
+    
+    print('\n',' {} MENU '.format(heading).center(50,'-'),'\n')
+    
+    number_string='SNO.'.ljust(10)
+    food_string='FOOD'.center(20)
+    price_string='PRICE'.rjust(20)
+    print(number_string,food_string,price_string,'\n')
+
+
+    for i,val in enumerate(menu.items(),1):
+        j,k=val
+        number_string=' {} .'.format(i).ljust(10)
+        food_string='{}'.format(j).center(20)
+        price_string='{}  '.format(k).rjust(20)
+        print(number_string,food_string,price_string)
+            
+    print('\n')
+    order =int(input('Enter number of your order: '))
+    return order
+
+
+def breakfast():
+    breakfastmenu={'Idli':20,'Dosa':40,'Poha':30,'Milk':10,'Coffee':15}
+    global food
+    global price
+    i='y'
+    while i=='y':
+
+        order=display_menu('BREAKFAST',breakfastmenu)
+
+        if order==1:
+            food.append('Idli')
+            price.append(breakfastmenu['Idli'])
+        elif order==2:
+            food.append('Dosa')
+            price.append(breakfastmenu['Dosa'])   
+        elif order==3:
+            food.append('Poha')
+            price.append(breakfastmenu['Poha'])
+        elif order==4:
+            food.append('Milk')
+            price.append(breakfastmenu['Milk'])
+        elif order==5:
+            food.append('Coffee')
+            price.append(breakfastmenu['Coffee']) 
+        else:
+            print('Invalid Input.')
+        i=input('Want to order more breakfast? (y/n):')   
+
+def lunch():
+    lunchmenu={'Chole Bhature':50,'Aloo Matar':75,'Matar Paneer':100,'Malai Kofta':100,'Mix Vegetable':120}
+
+    global food
+    global price
+    i='y'
+    while i=='y':
+
+        order=display_menu('LUNCH',lunchmenu)
+
+        if order==1:
+            food.append('Chole Bhature')
+            price.append(lunchmenu['Chole Bhature'])
+        elif order==2:
+            food.append('Aloo Matar')
+            price.append(lunchmenu['Aloo Matar'])   
+        elif order==3:
+            food.append('Matar Paneer')
+            price.append(lunchmenu['Matar Paneer'])
+        elif order==4:
+            food.append('Malai Kofta')
+            price.append(lunchmenu['Malai Kofta'])
+        elif order==5:
+            food.append('Mix Vegetable')
+            price.append(lunchmenu['Mix Vegetable']) 
+        else:
+            print('Invalid Input.')
+        i=input('Want to order more lunch? (y/n):')
+    
+    
+def snacks():
+    snacksmenu={'Burger':60,'Sev Puri':30,'Bhelpuri':75,'Pakode':30,'Sandwich':40}
+
+    global food
+    global price
+    i='y'
+    while i=='y':
+
+        order=display_menu('SNACKS',snacksmenu)
+
+        if order==1:
+            food.append('Burger')
+            price.append(snacksmenu['Burger'])
+        elif order==2:
+            food.append('Sev Puri')
+            price.append(snacksmenu['Sev Puri'])   
+        elif order==3:
+            food.append('Bhelpuri')
+            price.append(snacksmenu['Bhelpuri'])
+        elif order==4:
+            food.append('Pakode')
+            price.append(snacksmenu['Pakode'])
+        elif order==5:
+            food.append('Sandwich')
+            price.append(snacksmenu['Sandwich']) 
+        else:
+            print('Invalid Input.')
+        i=input('Want to order more snacks? (y/n):')
+
+def drinks():
+    drinksmenu={'Pepsi':40,'Coke':40,'Orange Juice':50,'Mango Juice':60,'Apple Juice':60}
+
+    global food
+    global price
+    i='y'
+    while i=='y':
+
+        order=display_menu('DRINKS',drinksmenu)
+
+        if order==1:
+            food.append('Pepsi')
+            price.append(drinksmenu['Pepsi'])
+        elif order==2:
+            food.append('Coke')
+            price.append(drinksmenu['Coke'])   
+        elif order==3:
+            food.append('Orange Juice')
+            price.append(drinksmenu['Orange Juice'])
+        elif order==4:
+            food.append('Mango Juice')
+            price.append(drinksmenu['Mango Juice'])
+        elif order==5:
+            food.append('Apple Juice')
+            price.append(drinksmenu['Apple Juice']) 
+        else:
+            print('Invalid Input.')
+        i=input('Want to order more drinks? (y/n):')
+
+
+
+
+def dinner():
+    dinnermenu={'Pizza':150,'Paneer Tikka':160,'Paneer Kofta':170,'Dal Makhani':150,'Biryani':200}
+
+    global food
+    global price
+    i='y'
+    while i=='y':
+
+        order=display_menu('DINNER',dinnermenu)
+
+        if order==1:
+            food.append('Pizza')
+            price.append(dinnermenu['Pizza'])
+        elif order==2:
+            food.append('Paneer Tikka')
+            price.append(dinnermenu['Paneer Tikka'])   
+        elif order==3:
+            food.append('Paneer Kofta')
+            price.append(dinnermenu['Panner Kofta'])
+        elif order==4:
+            food.append('Dal Makhani')
+            price.append(dinnermenu['Dal Makhani'])
+        elif order==5:
+            food.append('Biryani')
+            price.append(dinnermenu['Biryani']) 
+        else:
+            print('Invalid Input.')
+        i=input('Want to order more dinner? (y/n):')
+
+#-----------------------------------------------------------
+
+food,price=[],[]
+i='y'
+print('-------------------------- WELCOME --------------------------')
+while i=='y'or i=='Y':
+    print('\nEnter your choice:\n\t1 for breakfast\n\t2 for lunch\n\t3 for snacks\n\t4 for drinks\n\t5 for dinner')
+    choice=input(':')
+
+    if choice=='1':
+        breakfast()
+    elif choice=='2':
+        lunch() 
+    elif choice=='3':
+        snacks()
+    elif choice=='4':
+        drinks()    
+    elif choice=='5':
+        dinner()
+    else:
+        print('Invalid Input.')
+
+    i=input('\nWant to order more from other menu? (y/n):') 
+
+
+total_price = sum(price)   
+final={}
+for i in range(len(food)):
+    if food[i] in final.keys():
+        final[food[i]] = final[food[i]] + price[i]
+    else:
+        final[food[i]]=price[i]  
+   
+
+print('\n'+''.center(50,'-'))
+number_string='SNO.'.ljust(10)
+food_string='FOOD'.center(20)
+price_string='PRICE'.rjust(20)
+print(number_string,food_string,price_string,'\n')
+
+
+for i,val in enumerate(final.items(),1):
+    j,k=val
+    number_string=' {} .'.format(i).ljust(10)
+    food_string='{}'.format(j).center(20)
+    price_string='{}  '.format(k).rjust(20)
+    print(number_string,food_string,price_string)
+
+print(''.center(50,'-'))
+number_string='{} food item(s)'.format(len(food)).ljust(20)
+food_string=''.center(10)
+price_string='Rs. {}'.format(total_price).rjust(20)
+print(number_string,food_string,price_string)
+print('Enjoy your food.')
